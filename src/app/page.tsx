@@ -2,8 +2,8 @@ export default function Page() {
   return (
     <main>
       <section id="short-resume">
-        <h1>Hello, friend.</h1>
-        <p>I'm a developer and cybersecurity enthusiast.</p>
+        <h1>Hello, friend.</h1>g
+        <p>I{"'"}m a developer and cybersecurity enthusiast.</p>
       </section>
       <section id="terminal">
         <div id="title-bar">
