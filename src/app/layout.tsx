@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${glegoo.className} bg-purple-500 gap-4 w-screen h-screen flex flex-col text-white`}
+        className={`${glegoo.className} bg-purple-600 gap-4 w-screen h-screen flex flex-col text-white`}
       >
         <Header />
         {children}
