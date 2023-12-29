@@ -4,6 +4,7 @@ import HackTheBoxIcon from '/public/hackthebox.svg'
 import GithubIcon from '/public/github.svg'
 import TryHackMeIcon from '/public/tryhackme.svg'
 import LinkedInIcon from '/public/linkedin.svg'
+import EmailIcon from '/public/email.svg'
 
 export default function Footer() {
   return (
@@ -25,6 +26,7 @@ export default function Footer() {
         href="https://www.linkedin.com/in/halissoncruz/"
         icon={<LinkedInIcon />}
       />
+      <Social href="mailto:root@sim0wn.com" icon={<EmailIcon />} />
     </footer>
   )
 }
