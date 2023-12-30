@@ -16,15 +16,17 @@ export default function Page() {
           </menu>
         </nav>
         <section className="rounded-xl pt-1 pb-2 flex flex-col gap-1">
-          <div className="bg-zinc-600 p-1">
-            <article>
+          <div className="bg-zinc-600 p-1 text-center">
+            <p>Github API repository listing to be implemented...</p>
+            {/* <article>
               <h1 className="border-b">API do Portal do Estudante</h1>
               <p>
                 Projeto Final de Curso desenvolvido para o curso Técnico em
                 Informática do IFPR Jacarezinho
               </p>
-            </article>
+            </article> */}
           </div>
+          {/* 
           <div className="bg-zinc-600 p-1">
             <article>
               <h1 className="border-b">Event4You</h1>
@@ -33,7 +35,7 @@ export default function Page() {
                 dos participantes dos eventos GeniusCon e Ficafé
               </p>
             </article>
-          </div>
+          </div> */}
         </section>
       </section>
     </main>
