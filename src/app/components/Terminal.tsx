@@ -7,8 +7,8 @@ interface TerminalProps extends HTMLAttributes<HTMLDivElement> {
 
 function Navbar({ children }: MenuHTMLAttributes<HTMLMenuElement>) {
   return (
-    <nav className="text-center w-full">
-      <menu className="list-none flex bg-zinc-500 p-1 justify-center">
+    <nav className="w-full text-center">
+      <menu className="flex list-none justify-center bg-zinc-500 p-1">
         {children}
       </menu>
     </nav>
@@ -17,7 +17,7 @@ function Navbar({ children }: MenuHTMLAttributes<HTMLMenuElement>) {
 
 function Tab({ children }: LiHTMLAttributes<HTMLLIElement>) {
   return (
-    <li className="border-b-2 border-purple-300 mx-6 text-purple-100 w-full">
+    <li className="mx-6 w-full border-b-2 border-purple-300 text-purple-100">
       <Link href="#">{children}</Link>
     </li>
   )
@@ -25,16 +25,16 @@ function Tab({ children }: LiHTMLAttributes<HTMLLIElement>) {
 
 function TabContent({ children }: HTMLAttributes<HTMLDivElement>) {
   return (
-    <section className="rounded-xl pt-1 pb-2 flex flex-col gap-1">
+    <section className="flex flex-col gap-1 rounded-xl pb-2 pt-1">
       {children}
     </section>
   )
 }
 
-function Terminal({ title, children }: TerminalProps) {
+function Terminal({ children, title }: TerminalProps) {
   return (
-    <div className="bg-zinc-700 rounded-xl">
-      <h3 className="text-center mt-auto p-2">{title}</h3>
+    <div className="rounded-xl bg-zinc-700">
+      <h3 className="mt-auto p-2 text-center">{title}</h3>
       {children}
     </div>
   )

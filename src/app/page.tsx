@@ -1,12 +1,9 @@
 import { getRepositories } from '@/libs/getRepositories'
-import { octokit } from '@/utils/octokit'
-import Link from 'next/link'
-import Badge from './components/LanguageBadge'
-import Image from 'next/image'
-import LanguageBadge from './components/LanguageBadge'
 import { Language } from '@/types/Language'
-import Terminal from './components/Terminal'
+import Link from 'next/link'
+import LanguageBadge from './components/LanguageBadge'
 import Main from './components/Main'
+import Terminal from './components/Terminal'
 
 export default async function Page() {
   const repositories = (await getRepositories()).data
@@ -28,10 +25,10 @@ export default async function Page() {
             console.log(repository)
             const {
               full_name,
-              id,
               homepage,
-              language,
               html_url,
+              id,
+              language,
               pushed_at,
               topics,
             } = repository
@@ -41,11 +38,11 @@ export default async function Page() {
                   <header className="flex items-center gap-2">
                     <Link
                       href={repository.private ? homepage || '#' : html_url}
-                      className="underline underline-offset-4 hover:text-purple-300 active:text-purple-300 p-0"
+                      className="p-0 underline underline-offset-4 hover:text-purple-300 active:text-purple-300"
                     >
                       {full_name}
                     </Link>
-                    <section className="flex justify-end flex-1 gap-2">
+                    <section className="flex flex-1 justify-end gap-2">
                       {language && (
                         <LanguageBadge language={language as Language} />
                       )}
@@ -54,9 +51,12 @@ export default async function Page() {
                   </header>
                   <section>
                     <p>{repository.description}</p>
-                    <div className="flex gap-1 flex-wrap">
-                      {topics?.map((topic) => (
-                        <span className="border-b-4 bg-purple-500 border-purple-800 px-1 pt-0.5">
+                    <div className="flex flex-wrap gap-1">
+                      {topics?.map((topic, index) => (
+                        <span
+                          key={`${id}-${index}`}
+                          className="border-b-4 border-purple-800 bg-purple-500 px-1 pt-0.5"
+                        >
                           #{topic}
                         </span>
                       ))}

@@ -5,18 +5,18 @@ import { ReactNode } from 'react'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
-const glegoo = Glegoo({ weight: '700', subsets: ['latin'] })
+const glegoo = Glegoo({ subsets: ['latin'], weight: '700' })
 
 export const metadata: Metadata = {
-  title: 'sim0wn',
   description: 'See my work',
+  title: 'sim0wn',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body
-        className={`${glegoo.className} scroll-smooth bg-gradient-to-bl from-20% from-purple-900 via-purple-700 to-purple-600 gap-4 w-screen h-screen flex flex-col text-white`}
+        className={`${glegoo.className} flex h-screen w-screen flex-col gap-4 scroll-smooth bg-gradient-to-bl from-purple-900 from-20% via-purple-700 to-purple-600 text-white`}
       >
         <Header />
         {children}
