@@ -1,5 +1,5 @@
 import Link, { LinkProps } from 'next/link'
-import React, { ReactElement, ReactNode } from 'react'
+import React, { ReactElement } from 'react'
 
 interface SocialProps extends LinkProps {
   icon: ReactElement

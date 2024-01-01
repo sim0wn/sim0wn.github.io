@@ -1,5 +1,5 @@
 import { Language } from '@/types/Language'
-import { ReactNode } from 'react'
+import Image from 'next/image'
 
 interface LanguageBadgeProps {
   language: Language
@@ -19,5 +19,5 @@ function getSrc(language: Language) {
 }
 
 export default function LanguageBadge({ language }: LanguageBadgeProps) {
-  return <img src={getSrc(language)} alt={language} className="h-fit" />
+  return <Image src={getSrc(language)} alt={language} className="h-fit" />
 }
