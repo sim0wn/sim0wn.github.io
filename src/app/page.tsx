@@ -1,5 +1,4 @@
 import { getRepositories } from '@/libs/getRepositories'
-import { formatRepositoryName } from '@/utils/formatRepositoryName'
 import { octokit } from '@/utils/octokit'
 import Link from 'next/link'
 import Badge from './components/LanguageBadge'
