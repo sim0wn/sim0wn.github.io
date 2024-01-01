@@ -21,12 +21,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "perfectionist",
-    "prettier-plugin-tailwindcss"
-  ],
+  "plugins": ["@typescript-eslint", "react", "perfectionist"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",

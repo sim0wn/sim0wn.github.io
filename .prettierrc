@@ -4,5 +4,6 @@
   "semi": false,
   "singleQuote": true,
   "useTabs": false,
-  "printWidth": 79
+  "printWidth": 79,
+  "plugins": ["prettier-plugin-tailwindcss"]
 }
