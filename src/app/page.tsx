@@ -1,43 +1,74 @@
-export default function Page() {
+import { getRepositories } from '@/libs/getRepositories'
+import { formatRepositoryName } from '@/utils/formatRepositoryName'
+import { octokit } from '@/utils/octokit'
+import Link from 'next/link'
+import Badge from './components/LanguageBadge'
+import Image from 'next/image'
+import LanguageBadge from './components/LanguageBadge'
+import { Language } from '@/types/Language'
+import Terminal from './components/Terminal'
+import Main from './components/Main'
+
+export default async function Page() {
+  const repositories = (await getRepositories()).data
   return (
-    <main className="flex-1 flex flex-col gap-4 px-2">
+    <Main>
+      {/* Greeting */}
       <section className="text-center">
         <h1>Hello, friend.</h1>
         <p>I{"'"}m a developer and cybersecurity enthusiast.</p>
       </section>
-      <section className="bg-zinc-700 rounded-xl">
-        <h3 className="text-center mt-auto p-2">My Work</h3>
-        <nav>
-          <menu className="list-none grid grid-cols-2 grid-flow-col bg-zinc-500 p-1 divide-x text-center">
-            <li className="border-b-2 border-purple-300 mx-6 text-purple-100">
-              Projects
-            </li>
-            <li>Write-Ups</li>
-          </menu>
-        </nav>
-        <section className="rounded-xl pt-1 pb-2 flex flex-col gap-1">
-          <div className="bg-zinc-600 p-1 text-center">
-            <p>Github API repository listing to be implemented...</p>
-            {/* <article>
-              <h1 className="border-b">API do Portal do Estudante</h1>
-              <p>
-                Projeto Final de Curso desenvolvido para o curso Técnico em
-                Informática do IFPR Jacarezinho
-              </p>
-            </article> */}
-          </div>
-          {/* 
-          <div className="bg-zinc-600 p-1">
-            <article>
-              <h1 className="border-b">Event4You</h1>
-              <p>
-                Desenvolvimento de aplicação mobile para realização de check-in
-                dos participantes dos eventos GeniusCon e Ficafé
-              </p>
-            </article>
-          </div> */}
-        </section>
-      </section>
-    </main>
+      {/* Terminal */}
+      <Terminal title="My Work">
+        <Terminal.Navbar>
+          <Terminal.Tab>Projects</Terminal.Tab>
+          <Terminal.Tab>Write-Ups</Terminal.Tab>
+        </Terminal.Navbar>
+        <Terminal.TabContent>
+          {repositories.map((repository) => {
+            console.log(repository)
+            const {
+              full_name,
+              id,
+              homepage,
+              language,
+              html_url,
+              pushed_at,
+              topics,
+            } = repository
+            return (
+              <div className="bg-zinc-500 even:bg-zinc-600" key={id}>
+                <article className="px-1 py-1 text-lg">
+                  <header className="flex items-center gap-2">
+                    <Link
+                      href={repository.private ? homepage || '#' : html_url}
+                      className="underline underline-offset-4 hover:text-purple-300 active:text-purple-300 p-0"
+                    >
+                      {full_name}
+                    </Link>
+                    <section className="flex justify-end flex-1 gap-2">
+                      {language && (
+                        <LanguageBadge language={language as Language} />
+                      )}
+                      {pushed_at && new Date(pushed_at).toLocaleDateString()}
+                    </section>
+                  </header>
+                  <section>
+                    <p>{repository.description}</p>
+                    <div className="flex gap-1 flex-wrap">
+                      {topics?.map((topic) => (
+                        <span className="border-b-4 bg-purple-500 border-purple-800 px-1 pt-0.5">
+                          #{topic}
+                        </span>
+                      ))}
+                    </div>
+                  </section>
+                </article>
+              </div>
+            )
+          })}
+        </Terminal.TabContent>
+      </Terminal>
+    </Main>
   )
 }
