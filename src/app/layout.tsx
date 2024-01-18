@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import { cn } from '@/lib/utils'
 import Providers from './providers'
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
   weight: '700',
