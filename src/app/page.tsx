@@ -1,73 +1,66 @@
-import { getRepositories } from '@/libs/getRepositories'
-import { Language } from '@/types/Language'
-import Link from 'next/link'
-import LanguageBadge from './components/LanguageBadge'
-import Main from './components/Main'
-import Terminal from './components/Terminal'
+import Main from '../components/Main'
+import Icon from './icon.png'
+import Image from 'next/image'
+import { Social } from '../components/Social'
+import LattesIcon from '/public/lattes.svg'
+import HackTheBoxIcon from '/public/hackthebox.svg'
+import GithubIcon from '/public/github.svg'
+import TryHackMeIcon from '/public/tryhackme.svg'
+import LinkedInIcon from '/public/linkedin.svg'
+import EmailIcon from '/public/email.svg'
+import WorkSection from '@/components/WorkSection'
+import BackToTop from '@/components/BackToTop'
 
 export default async function Page() {
-  const repositories = (await getRepositories()).data
   return (
     <Main>
       {/* Greeting */}
-      <section className="text-center">
-        <h1>Hello, friend.</h1>
-        <p>I{"'"}m a developer and cybersecurity enthusiast.</p>
+      <section className="mx-auto my-4 flex flex-col gap-8 text-center md:my-12">
+        <section className="flex flex-col gap-4">
+          <div className="z-10 mx-auto grid place-content-center rounded-full bg-gradient-to-bl from-purple-900 from-20% via-purple-700 to-purple-600 p-1 text-center">
+            <Image
+              src={Icon}
+              alt="Imagem do autor"
+              width={Icon.width}
+              height={Icon.height}
+              className="h-72 w-72 rounded-full object-cover"
+            />
+          </div>
+          <section className="mx-auto flex gap-1.5">
+            <Social
+              href="http://lattes.cnpq.br/4781391320784524/"
+              icon={<LattesIcon />}
+            />
+            <Social
+              href="https://app.hackthebox.com/profile/143157/"
+              icon={<HackTheBoxIcon />}
+            />
+            <Social href="https://github.com/sim0wn/" icon={<GithubIcon />} />
+            <Social
+              href="https://tryhackme.com/p/sim0wn/"
+              icon={<TryHackMeIcon />}
+            />
+            <Social
+              href="https://www.linkedin.com/in/halissoncruz/"
+              icon={<LinkedInIcon />}
+            />
+            <Social href="mailto:root@sim0wn.com" icon={<EmailIcon />} />
+          </section>
+        </section>
+        <h3 className="text-balance font-sans text-lg">
+          Olá, amigo. Seja bem vindo!
+        </h3>
+        <p className="self-center text-center font-sans text-lg lg:w-3/6">
+          Sou um entusiasta em cibersegurança e desenvolvedor por hobby. Já
+          deve ter se dado conta de que sou péssimo com front-end, porém tenho
+          algumas outras habilidades que você pode conferir mais abaixo.
+        </p>
       </section>
-      {/* Terminal */}
-      <Terminal title="My Work">
-        <Terminal.Navbar>
-          <Terminal.Tab>Projects</Terminal.Tab>
-          <Terminal.Tab>Write-Ups</Terminal.Tab>
-        </Terminal.Navbar>
-        <Terminal.TabContent>
-          {repositories.map((repository) => {
-            console.log(repository)
-            const {
-              full_name,
-              homepage,
-              html_url,
-              id,
-              language,
-              pushed_at,
-              topics,
-            } = repository
-            return (
-              <div className="bg-zinc-500 even:bg-zinc-600" key={id}>
-                <article className="px-1 py-1 text-lg">
-                  <header className="flex items-center gap-2">
-                    <Link
-                      href={repository.private ? homepage || '#' : html_url}
-                      className="p-0 underline underline-offset-4 hover:text-purple-300 active:text-purple-300"
-                    >
-                      {full_name}
-                    </Link>
-                    <section className="flex flex-1 justify-end gap-2">
-                      {language && (
-                        <LanguageBadge language={language as Language} />
-                      )}
-                      {pushed_at && new Date(pushed_at).toLocaleDateString()}
-                    </section>
-                  </header>
-                  <section>
-                    <p>{repository.description}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {topics?.map((topic, index) => (
-                        <span
-                          key={`${id}-${index}`}
-                          className="border-b-4 border-purple-800 bg-purple-500 px-1 pt-0.5"
-                        >
-                          #{topic}
-                        </span>
-                      ))}
-                    </div>
-                  </section>
-                </article>
-              </div>
-            )
-          })}
-        </Terminal.TabContent>
-      </Terminal>
+      {/*  */}
+      <section className="flex max-h-[700px] w-full">
+        <WorkSection />
+      </section>
+      <BackToTop />
     </Main>
   )
 }

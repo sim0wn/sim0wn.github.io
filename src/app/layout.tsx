@@ -1,27 +1,37 @@
 import type { Metadata } from 'next'
-import { Glegoo } from 'next/font/google'
+import { Glegoo as FontSans } from 'next/font/google'
 import './globals.css'
 import { ReactNode } from 'react'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from '../components/Header'
+import { cn } from '@/lib/utils'
+import Providers from './providers'
 
-const glegoo = Glegoo({ subsets: ['latin'], weight: '700' })
+export const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+  weight: '700',
+})
 
 export const metadata: Metadata = {
-  description: 'See my work',
+  description: 'Meu portfólio',
   title: 'sim0wn',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body
-        className={`${glegoo.className} flex h-screen w-screen flex-col gap-4 scroll-smooth bg-gradient-to-bl from-purple-900 from-20% via-purple-700 to-purple-600 text-white`}
-      >
-        <Header />
-        {children}
-        <Footer />
-      </body>
+    <html lang="pt-br" className="scroll-smooth">
+      <Providers>
+        <body
+          className={cn(
+            'flex min-h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-neutral-100 font-sans text-white antialiased dark:bg-neutral-900',
+            fontSans.variable
+          )}
+        >
+          <Header />
+          {children}
+          {/* <Footer /> */}
+        </body>
+      </Providers>
     </html>
   )
 }

@@ -19,5 +19,13 @@ function getSrc(language: Language) {
 }
 
 export default function LanguageBadge({ language }: LanguageBadgeProps) {
-  return <Image src={getSrc(language)} alt={language} className="h-fit" />
+  return (
+    <Image
+      width={128}
+      height={0}
+      src={getSrc(language)}
+      alt={language}
+      className="h-fit"
+    />
+  )
 }
