@@ -23,6 +23,7 @@ export default async function Page() {
               alt="Imagem do autor"
               width={Icon.width}
               height={Icon.height}
+              quality={100}
               className="h-72 w-72 rounded-full object-cover"
             />
           </div>
@@ -51,9 +52,8 @@ export default async function Page() {
           Olá, amigo. Seja bem vindo!
         </h3>
         <p className="self-center text-center font-sans text-lg lg:w-3/6">
-          Sou um entusiasta em cibersegurança e desenvolvedor por hobby. Já
-          deve ter se dado conta de que sou péssimo com front-end, porém tenho
-          algumas outras habilidades que você pode conferir mais abaixo.
+          Sou um entusiasta em cibersegurança e desenvolvedor por hobby.
+          Abaixo, você pode conferir algumas de minhas habilidades.
         </p>
       </section>
       {/*  */}
