@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <Providers>
         <body
           className={cn(
-            'flex min-h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-neutral-100 font-sans text-white antialiased dark:bg-neutral-900',
+            'flex min-h-screen w-screen flex-col overflow-y-auto overflow-x-hidden bg-neutral-100 font-sans text-neutral-900 antialiased dark:bg-neutral-900 dark:text-white',
             fontSans.variable
           )}
         >
