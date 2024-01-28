@@ -5,7 +5,7 @@ import { AnchorHTMLAttributes, forwardRef } from 'react'
 const Social = forwardRef<
   HTMLAnchorElement,
   LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>
->(({ href, children, ...props }, ref) => {
+>(({ children, href, ...props }, ref) => {
   return (
     <Link
       ref={ref}

@@ -26,7 +26,7 @@ CardHeader.displayName = 'CardHeader'
 const CardTitle = forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
+>(({ children, className, ...props }, ref) => (
   <h2
     ref={ref}
     className={classNames(
@@ -34,7 +34,9 @@ const CardTitle = forwardRef<
       className
     )}
     {...props}
-  />
+  >
+    {children}
+  </h2>
 ))
 CardTitle.displayName = 'CardTitle'
 
