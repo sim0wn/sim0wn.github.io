@@ -1,4 +1,4 @@
-import { Language } from '@/types/Language'
+import { Language } from '@/types/language'
 import Image from 'next/image'
 
 interface LanguageBadgeProps {
