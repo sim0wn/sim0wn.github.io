@@ -8,56 +8,63 @@ import {
   CardTitle,
 } from '@/components/card'
 import { getRepositories } from '@/lib/getRepositories'
-import Link from 'next/link'
-import PrivateRepositoryIcon from '/public/private_repository.svg'
+import { Metadata } from 'next'
+import { Anchor } from '../../components/anchor'
+import PrivateRepositoryIcon from '/public/icons/private_repository.svg'
+
+export const metadata: Metadata = {
+  title: 'Repositórios',
+}
 
 export default async function Page() {
-  return (await getRepositories()).data.map((repository) => {
-    const {
-      description,
-      full_name,
-      homepage,
-      html_url,
-      id,
-      language,
-      private: isPrivate,
-      pushed_at,
-      topics,
-    } = repository
-    return (
-      <Card key={id}>
-        <CardHeader>
-          <CardTitle>
-            <Link
-              href={homepage ? homepage : isPrivate ? '#' : html_url}
-              className="flex gap-2"
-            >
-              {isPrivate && <PrivateRepositoryIcon />}
-              {full_name}
-            </Link>
-          </CardTitle>
-          {language && (
-            <CardDescription className="flex gap-2">
-              <Badge>{language}</Badge>
-              {pushed_at && (
-                <Badge>
-                  {new Date(pushed_at ?? '').toLocaleDateString('pt-br')}
-                </Badge>
+  return (
+    <main className="flex flex-col gap-2">
+      <h1>Repositórios</h1>
+      {(await getRepositories()).data.map((repository) => {
+        const {
+          description,
+          full_name,
+          homepage,
+          html_url,
+          id,
+          language,
+          private: isPrivate,
+          pushed_at,
+          topics,
+        } = repository
+        return (
+          <Card key={id}>
+            <CardHeader>
+              <CardTitle>
+                <Anchor
+                  href={homepage ? homepage : isPrivate ? '#' : html_url}
+                >
+                  {isPrivate && <PrivateRepositoryIcon />}
+                  {full_name}
+                </Anchor>
+              </CardTitle>
+              {language && (
+                <CardDescription className="flex gap-2">
+                  <Badge>{language}</Badge>
+                  {pushed_at && (
+                    <Badge>{new Date(pushed_at ?? '').toDateString()}</Badge>
+                  )}
+                </CardDescription>
               )}
-            </CardDescription>
-          )}
-        </CardHeader>
-        <CardContent>{description}</CardContent>
-        {topics && (
-          <CardFooter className="flex flex-wrap gap-1">
-            {topics.map((topic, index) => (
-              <Badge variant="outline" key={`${id}-topic-${index}`}>
-                {topic}
-              </Badge>
-            ))}
-          </CardFooter>
-        )}
-      </Card>
-    )
-  })
+            </CardHeader>
+            <CardContent>{description}</CardContent>
+            {topics && (
+              <CardFooter className="flex flex-wrap gap-1">
+                {topics.map((topic, index) => (
+                  <Badge variant="outline" key={`${id}-topic-${index}`}>
+                    {topic}
+                  </Badge>
+                ))}
+              </CardFooter>
+            )}
+          </Card>
+        )
+      })}
+    </main>
+  )
 }

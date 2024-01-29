@@ -12,7 +12,8 @@ const variants = {
     'border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80',
 }
 
-function Badge({
+export function Badge({
+  children,
   className,
   variant = 'default',
   ...props
@@ -25,8 +26,8 @@ function Badge({
         className
       )}
       {...props}
-    />
+    >
+      {children}
+    </div>
   )
 }
-
-export { Badge }

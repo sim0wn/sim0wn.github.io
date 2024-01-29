@@ -2,73 +2,92 @@ import classNames from 'classnames'
 import { HTMLAttributes, forwardRef } from 'react'
 
 const Card = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={classNames('rounded-xl border shadow', className)}
-      {...props}
-    />
-  )
+  function Card({ children, className, ...props }, ref) {
+    return (
+      <div
+        ref={ref}
+        className={classNames('rounded-xl border shadow', className)}
+        {...props}
+      >
+        {children}
+      </div>
+    )
+  }
 )
-Card.displayName = 'Card'
 
 const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={classNames('flex flex-col space-y-1.5 p-6', className)}
-      {...props}
-    />
-  )
+  function CardHeader({ children, className, ...props }, ref) {
+    return (
+      <header
+        ref={ref}
+        className={classNames(
+          'flex flex-col space-y-1.5 border-b p-4',
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </header>
+    )
+  }
 )
-CardHeader.displayName = 'CardHeader'
 
 const CardTitle = forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLDivElement>
->(({ children, className, ...props }, ref) => (
-  <h2
-    ref={ref}
-    className={classNames(
-      'font-semibold leading-none tracking-tight',
-      className
-    )}
-    {...props}
-  >
-    {children}
-  </h2>
-))
-CardTitle.displayName = 'CardTitle'
+>(function CardTitle({ children, className, ...props }, ref) {
+  return (
+    <h2
+      ref={ref}
+      className={classNames(
+        'font-semibold leading-none tracking-tight',
+        className
+      )}
+      {...props}
+    >
+      {children}
+    </h2>
+  )
+})
 
 const CardDescription = forwardRef<
   HTMLParagraphElement,
   HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={classNames('text-sm text-muted-foreground', className)}
-    {...props}
-  />
-))
-CardDescription.displayName = 'CardDescription'
+>(function CardDescription({ children, className, ...props }, ref) {
+  return (
+    <span
+      ref={ref}
+      className={classNames('text-sm text-muted-foreground', className)}
+      {...props}
+    >
+      {children}
+    </span>
+  )
+})
 
 const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div ref={ref} className={classNames('p-6 pt-0', className)} {...props} />
-  )
+  function CardContent({ children, className, ...props }, ref) {
+    return (
+      <main ref={ref} className={classNames('p-3', className)} {...props}>
+        {children}
+      </main>
+    )
+  }
 )
-CardContent.displayName = 'CardContent'
 
 const CardFooter = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
-    <div
-      ref={ref}
-      className={classNames('flex items-center p-6 pt-0', className)}
-      {...props}
-    />
-  )
+  function CardFooter({ children, className, ...props }, ref) {
+    return (
+      <footer
+        ref={ref}
+        className={classNames('flex items-center p-6 pt-0', className)}
+        {...props}
+      >
+        {children}
+      </footer>
+    )
+  }
 )
-CardFooter.displayName = 'CardFooter'
 
 export {
   Card,

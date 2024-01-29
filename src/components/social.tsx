@@ -2,10 +2,10 @@ import classNames from 'classnames'
 import Link, { LinkProps } from 'next/link'
 import { AnchorHTMLAttributes, forwardRef } from 'react'
 
-const Social = forwardRef<
+export const Social = forwardRef<
   HTMLAnchorElement,
   LinkProps & AnchorHTMLAttributes<HTMLAnchorElement>
->(({ children, href, ...props }, ref) => {
+>(function Social({ children, href, ...props }, ref) {
   return (
     <Link
       ref={ref}
@@ -25,7 +25,3 @@ const Social = forwardRef<
     </Link>
   )
 })
-
-Social.displayName = 'Social'
-
-export { Social }
