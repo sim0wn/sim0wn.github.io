@@ -7,15 +7,14 @@ import Image from 'next/image'
 import { HTMLAttributes, forwardRef } from 'react'
 import { Social } from '../../components/social'
 import { NavItem, NavLink } from './nav'
-import EmailIcon from '/public/icons/email.svg'
 import FingerPrintIcon from '/public/icons/fingerprint.svg'
-import GithubIcon from '/public/icons/github.svg'
-import HackTheBoxIcon from '/public/icons/hackthebox.svg'
-import LattesIcon from '/public/icons/lattes.svg'
-import LinkedInIcon from '/public/icons/linkedin.svg'
 import RepositoryIcon from '/public/icons/repository.svg'
-import TryHackMeIcon from '/public/icons/tryhackme.svg'
-import Icon from '/public/img/icon.png'
+import EmailIcon from '/public/icons/socials/email.svg'
+import GithubIcon from '/public/icons/socials/github.svg'
+import HackTheBoxIcon from '/public/icons/socials/hackthebox.svg'
+import LattesIcon from '/public/icons/socials/lattes.svg'
+import LinkedInIcon from '/public/icons/socials/linkedin.svg'
+import TryHackMeIcon from '/public/icons/socials/tryhackme.svg'
 
 const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, outerRef) => {
@@ -39,10 +38,10 @@ const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
       >
         <header className="flex flex-col gap-4">
           <Image
-            src={Icon}
-            alt="Imagem do autor"
-            width={Icon.width}
-            height={Icon.height}
+            src={'/img/icon.webp'}
+            alt="Logo com um S preenchido por degradê em tons de roxo produzido por inteligência artificial"
+            width={300}
+            height={300}
             className={classNames(
               'h-72 w-72' /* sizing */,
               'mx-auto' /* positioning */,
