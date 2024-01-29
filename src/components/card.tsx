@@ -55,11 +55,7 @@ const CardDescription = forwardRef<
   HTMLAttributes<HTMLDivElement>
 >(function CardDescription({ children, className, ...props }, ref) {
   return (
-    <span
-      ref={ref}
-      className={classNames('text-sm text-muted-foreground', className)}
-      {...props}
-    >
+    <span ref={ref} className={classNames('text-sm', className)} {...props}>
       {children}
     </span>
   )
