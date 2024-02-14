@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import type { Metadata } from 'next'
 import { ReactNode } from 'react'
 import Header from './components/header'
-import Sidebar from './components/sidebar'
+import { Sidebar } from './components/sidebar'
 import Providers from './providers'
 import './styles.css'
 
