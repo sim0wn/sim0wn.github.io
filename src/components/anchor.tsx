@@ -10,7 +10,7 @@ export const Anchor = forwardRef<
     <Link
       className={classNames(
         'flex w-fit items-center gap-2' /* layout */,
-        'hover:text-neutral-600 dark:hover:text-neutral-300' /* styling */,
+        'transition-all duration-200 hover:-translate-y-1 hover:text-neutral-600 dark:hover:text-neutral-300' /* styling */,
         className
       )}
       href={href}
