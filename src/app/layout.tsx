@@ -34,7 +34,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             className={classNames(
               'col-span-full lg:col-span-1 lg:row-span-full' /* layout */,
               'transition-width duration-200 ease-in-out' /* animation */,
-              'lg:w-80 xl:w-96' /* sizing */,
+              'lg:w-80 lg:overflow-y-scroll xl:w-96' /* sizing */,
               'border-b lg:border-r' /* styling */,
               'lg:row-start-2' /* position */
             )}
