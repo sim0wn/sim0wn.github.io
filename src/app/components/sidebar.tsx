@@ -1,11 +1,8 @@
-'use client'
-
+import { Anchor } from '@/components/anchor'
 import { Separator } from '@/components/separator'
-import { useSidebarStore } from '@/lib/store'
 import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes, forwardRef } from 'react'
-import { Social } from '../../components/social'
 import { NavItem, NavLink } from './nav'
 import FingerPrintIcon from '/public/icons/fingerprint.svg'
 import RepositoryIcon from '/public/icons/repository.svg'
@@ -18,18 +15,13 @@ import TryHackMeIcon from '/public/icons/socials/tryhackme.svg'
 
 const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, outerRef) => {
-    const { state } = useSidebarStore()
     return (
       <aside
         ref={outerRef}
         id="sidebar"
         aria-label="Sidebar"
         className={classNames(
-          {
-            '-translate-x-full': state === 'collapsed',
-          },
-          'max-md:fixed max-md:left-0 max-md:top-16 max-md:z-10 md:translate-x-0' /* position */,
-          'flex h-screen w-96 flex-col gap-2 p-2' /* layout */,
+          'flex flex-col gap-2 p-2' /* layout */,
           'transition-transform ease-in-out' /* animation */,
           'border-r border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800' /* styling */,
           className
@@ -38,7 +30,7 @@ const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
       >
         <header className="flex flex-col gap-4">
           <Image
-            src={'/img/icon.webp'}
+            src={'/img/icon.jpg'}
             alt="Logo com um S preenchido por degradê em tons de roxo produzido por inteligência artificial"
             width={300}
             height={300}
@@ -52,56 +44,57 @@ const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
           <ul
             className={classNames(
               'mx-auto' /* positioning */,
-              'flex items-center justify-center justify-items-center gap-1.5' /* layout */
+              'flex flex-wrap items-center justify-center justify-items-center gap-1.5' /* layout */,
+              'text-4xl' /* styling */
             )}
           >
             <li>
-              <Social
+              <Anchor
                 href="http://lattes.cnpq.br/4781391320784524/"
                 aria-label="Acesse meu Lattes"
               >
                 <LattesIcon />
-              </Social>
+              </Anchor>
             </li>
             <li>
-              <Social
+              <Anchor
                 href="https://app.hackthebox.com/profile/143157/"
                 aria-label="Acesse meu perfil do Hack The Box"
               >
                 <HackTheBoxIcon />
-              </Social>
+              </Anchor>
             </li>
             <li>
-              <Social
+              <Anchor
                 href="https://github.com/sim0wn/"
                 aria-label="Acesse meu github"
               >
                 <GithubIcon />
-              </Social>
+              </Anchor>
             </li>
             <li>
-              <Social
+              <Anchor
                 href="https://tryhackme.com/p/sim0wn/"
                 aria-label="Acesse meu perfil do Try Hack Me"
               >
                 <TryHackMeIcon />
-              </Social>
+              </Anchor>
             </li>
             <li>
-              <Social
+              <Anchor
                 href="https://www.linkedin.com/in/halissoncruz/"
                 aria-label="Acesse meu perfil do LinkedIn"
               >
                 <LinkedInIcon />
-              </Social>
+              </Anchor>
             </li>
             <li>
-              <Social
+              <Anchor
                 href="mailto:root@sim0wn.com"
                 aria-label="Entre em contato comigo pelo email"
               >
                 <EmailIcon />
-              </Social>
+              </Anchor>
             </li>
           </ul>
           <p className="text-wrap text-center">

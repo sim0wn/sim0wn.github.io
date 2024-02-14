@@ -6,7 +6,11 @@ const config = {
   plugins: [require('tailwindcss-animate')],
   prefix: '',
   theme: {
-    extend: {},
+    extend: {
+      transitionProperty: {
+        width: 'width',
+      },
+    },
   },
 } satisfies Config
 
