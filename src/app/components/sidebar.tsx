@@ -23,7 +23,7 @@ const Sidebar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
         className={classNames(
           'flex flex-col gap-2 p-2' /* layout */,
           'transition-transform ease-in-out' /* animation */,
-          'border-r border-neutral-300 bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800' /* styling */,
+          ' bg-neutral-100 dark:bg-neutral-800' /* styling */,
           className
         )}
         {...props}

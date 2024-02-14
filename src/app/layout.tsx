@@ -22,19 +22,20 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <body
         className={classNames(
           'grid grid-cols-[max-content_1fr] grid-rows-[max-content_1fr]' /* layout */,
-          'bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-50' /* styling */,
+          'divide-neutral-300 bg-neutral-100 text-neutral-800 dark:divide-neutral-700 dark:bg-neutral-800 dark:text-neutral-50' /* styling */,
           'w-screen lg:h-screen' /* sizing */,
           'lg:overflow-hidden' /* other */,
           ['antialiased', glegoo.className] /* font */
         )}
       >
         <Providers>
-          <Header className="col-span-full row-span-1" />
+          <Header className="col-span-full row-span-1 border-b" />
           <Sidebar
             className={classNames(
               'col-span-full lg:col-span-1 lg:row-span-full' /* layout */,
               'transition-width duration-200 ease-in-out' /* animation */,
               'lg:w-80 xl:w-96' /* sizing */,
+              'border-b lg:border-r' /* styling */,
               'lg:row-start-2' /* position */
             )}
           />

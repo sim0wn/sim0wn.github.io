@@ -8,9 +8,10 @@ export default function Header({ className }: HTMLAttributes<HTMLDivElement>) {
   return (
     <header
       className={classNames(
-        'flex w-full flex-row items-center justify-center p-3 px-2 text-center text-4xl' /* layout */,
-        'border-b border-neutral-300 font-bold dark:border-neutral-700' /* styling */,
-        rowdies.className /* font */,
+        'flex flex-row items-center justify-center text-center' /* layout */,
+        'px-2 py-3 text-4xl' /* styling */,
+        ['font-bold', rowdies.className] /* font */,
+        'w-full' /* sizing */,
         className
       )}
     >
