@@ -8,19 +8,17 @@ export default function Header({ className }: HTMLAttributes<HTMLDivElement>) {
   return (
     <header
       className={classNames(
-        'flex flex-row items-center justify-center text-center' /* layout */,
+        'grid grid-cols-3' /* layout */,
         'px-2 py-3 text-4xl' /* styling */,
         ['font-bold', rowdies.className] /* font */,
         'w-full' /* sizing */,
         className
       )}
     >
-      <Anchor href="/" className="mx-auto flex-1 justify-center">
+      <Anchor href="/" className="col-start-2 justify-self-center">
         sim0wn
       </Anchor>
-      <div className="flex place-content-end">
-        <ThemeToggle />
-      </div>
+      <ThemeToggle className="justify-self-end" />
     </header>
   )
 }
