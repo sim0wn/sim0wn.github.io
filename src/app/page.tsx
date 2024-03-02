@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <Container title="Sobre mim" className="flex flex-col gap-2">
-      <section>
+      <section className="grid grid-flow-row gap-1 md:grid-cols-2">
         <Card>
           <CardHeader>
             <CardTitle>Interesses</CardTitle>
@@ -17,8 +17,22 @@ export default function Page() {
           <CardContent>
             <ul>
               <li>Segurança da Informação</li>
+              <li>Testes de Invasão</li>
+              <li>FOSS</li>
               <li>Redes de Computadores</li>
               <li>Linux</li>
+            </ul>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Linguagens de Programação</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul>
+              <li>Python</li>
+              <li>TypeScript</li>
+              <li>Rust</li>
             </ul>
           </CardContent>
         </Card>
