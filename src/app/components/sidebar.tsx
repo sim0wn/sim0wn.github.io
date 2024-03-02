@@ -4,7 +4,9 @@ import classNames from 'classnames'
 import Image from 'next/image'
 import { HTMLAttributes, forwardRef } from 'react'
 import { NavItem, NavLink } from './nav'
+import ArticleIcon from '/public/icons/article.svg'
 import FingerPrintIcon from '/public/icons/fingerprint.svg'
+import SolutionIcon from '/public/icons/problem_thinking.svg'
 import RepositoryIcon from '/public/icons/repository.svg'
 import EmailIcon from '/public/icons/socials/email.svg'
 import GithubIcon from '/public/icons/socials/github.svg'
@@ -114,6 +116,18 @@ export const Sidebar = forwardRef<
             <NavLink href="/">
               <FingerPrintIcon />
               Sobre mim
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/solutions">
+              <SolutionIcon />
+              Soluções de Problemas
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="/articles">
+              <ArticleIcon />
+              Artigos
             </NavLink>
           </NavItem>
           <NavItem>
