@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/card'
+import Container from '@/components/container'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -7,8 +8,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="flex flex-col gap-2">
-      <h1>Sobre mim</h1>
+    <Container title="Sobre mim" className="flex flex-col gap-2">
       <section>
         <Card>
           <CardHeader>
@@ -23,6 +23,6 @@ export default function Page() {
           </CardContent>
         </Card>
       </section>
-    </main>
+    </Container>
   )
 }
