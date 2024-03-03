@@ -1,5 +1,6 @@
 import { getSolution } from '@/lib/getSolution'
 import { getSolutions } from '@/lib/getSolutions'
+import { parseMarkdown } from '@/lib/parseMarkdown'
 import { useRemarkSync } from 'react-remark'
 
 export async function generateStaticParams({
@@ -20,7 +21,10 @@ export default async function Page({
 }: {
   params: { platform: string; solution: string }
 }) {
-  const markdown = await getSolution(params.platform, params.solution)
+  const markdown = parseMarkdown(
+    await getSolution(params.platform, params.solution),
+    `https://github.com/sim0wn/solutions/blob/main/${params.platform}/${params.solution}`
+  )
   return (
     <article className="prose prose-neutral dark:prose-invert">
       {useRemarkSync(markdown)}
