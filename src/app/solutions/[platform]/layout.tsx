@@ -16,5 +16,12 @@ export default async function Layout({
   params: { platform: string }
   children: ReactNode
 }) {
-  return <Container title={params.platform}>{children}</Container>
+  return (
+    <Container>
+      <Container.Header>
+        <h1>{params.platform}</h1>
+      </Container.Header>
+      <section>{children}</section>
+    </Container>
+  )
 }

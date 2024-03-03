@@ -7,7 +7,10 @@ import { getPlatforms } from '@/lib/getPlatforms'
 export default async function Page() {
   const platforms = await getPlatforms()
   return (
-    <Container title="Soluções de Problemas">
+    <Container>
+      <Container.Header>
+        <h1>Soluções de Problemas</h1>
+      </Container.Header>
       {platforms.map(async ({ name, sha }: { sha: string; name: string }) => {
         const platform = await getPlatformDescription(name)
         return (

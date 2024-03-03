@@ -8,7 +8,10 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <Container title="Sobre mim" className="flex flex-col gap-2">
+    <Container className="flex flex-col gap-2">
+      <Container.Header>
+        <h1>Sobre mim</h1>
+      </Container.Header>
       <section className="grid grid-flow-row gap-1 md:grid-cols-2">
         <Card>
           <CardHeader>

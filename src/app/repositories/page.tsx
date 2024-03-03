@@ -19,7 +19,10 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   return (
-    <Container title="Repositórios">
+    <Container>
+      <Container.Header>
+        <h1>Repositórios</h1>
+      </Container.Header>
       <section className="flex flex-col gap-1">
         {(await getRepositories()).map((repository) => {
           const {

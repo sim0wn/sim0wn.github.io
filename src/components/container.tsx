@@ -1,16 +1,24 @@
+import classNames from 'classnames'
 import { HTMLAttributes } from 'react'
 
-interface MainProps extends HTMLAttributes<HTMLDivElement> {
-  title: string
-}
+const Header = ({ children, className }: HTMLAttributes<HTMLDivElement>) => (
+  <section
+    className={classNames(
+      'mb-1.5 border-b border-neutral-300 px-1 text-lg dark:border-neutral-700',
+      className
+    )}
+  >
+    {children}
+  </section>
+)
 
-export default function Container({ children, title }: MainProps) {
-  return (
-    <main>
-      <section className="mb-1.5 border-b border-neutral-300 px-1 dark:border-neutral-700">
-        <h1 className="text-lg">{title}</h1>
-      </section>
-      {children}
-    </main>
-  )
-}
+const Container = ({
+  children,
+  className,
+}: HTMLAttributes<HTMLDivElement>) => (
+  <main className={classNames(className)}>{children}</main>
+)
+
+Container.Header = Header
+
+export default Container
