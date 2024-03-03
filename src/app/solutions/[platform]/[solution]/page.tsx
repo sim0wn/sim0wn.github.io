@@ -21,6 +21,9 @@ export default async function Page({
   params: { platform: string; solution: string }
 }) {
   const markdown = await getSolution(params.platform, params.solution)
-  const content = useRemarkSync(markdown)
-  return <div>{content}</div>
+  return (
+    <article className="prose prose-neutral dark:prose-invert">
+      {useRemarkSync(markdown)}
+    </article>
+  )
 }
