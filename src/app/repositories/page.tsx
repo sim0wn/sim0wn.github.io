@@ -21,7 +21,7 @@ export default async function Page() {
   return (
     <Container title="Repositórios">
       <section className="flex flex-col gap-1">
-        {(await getRepositories()).data.map((repository) => {
+        {(await getRepositories()).map((repository) => {
           const {
             description,
             full_name,
