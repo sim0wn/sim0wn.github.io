@@ -16,7 +16,7 @@ const Container = ({
   children,
   className,
 }: HTMLAttributes<HTMLDivElement>) => (
-  <main className={classNames(className)}>{children}</main>
+  <main className={classNames('w-full', className)}>{children}</main>
 )
 
 Container.Header = Header

@@ -21,7 +21,7 @@ export default async function Layout({
       <Container.Header>
         <h1>{params.platform}</h1>
       </Container.Header>
-      <section>{children}</section>
+      <section className="flex gap-1">{children}</section>
     </Container>
   )
 }

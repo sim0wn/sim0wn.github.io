@@ -6,6 +6,9 @@ export async function getPlatforms() {
       owner: 'sim0wn',
       path: '',
       repo: 'solutions',
+      request: {
+        fetch: (url: string) => fetch(url, { next: { revalidate: 900 } }),
+      },
     })
   ).data
   return contents.filter((content: { type: string }) => content.type === 'dir')

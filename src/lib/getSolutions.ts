@@ -6,6 +6,9 @@ export async function getSolutions(platform: string) {
       owner: 'sim0wn',
       path: `${platform}`,
       repo: 'solutions',
+      request: {
+        fetch: (url: string) => fetch(url, { next: { revalidate: 900 } }),
+      },
     })
   ).data
   return (contents as Array<Partial<{ type: string }>>).filter(
