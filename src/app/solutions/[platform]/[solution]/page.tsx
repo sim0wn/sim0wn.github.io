@@ -26,7 +26,7 @@ export default async function Page({
     `https://github.com/sim0wn/solutions/blob/main/${params.platform}/${params.solution}`
   )
   return (
-    <article className="prose prose-neutral w-full dark:prose-invert">
+    <article className="prose prose-neutral dark:prose-invert">
       {useRemarkSync(markdown)}
     </article>
   )
